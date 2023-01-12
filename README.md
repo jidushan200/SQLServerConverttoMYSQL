@@ -1,0 +1,4 @@
+# SQLServerConverttoMYSQL
+提取于HongQiN117Andon红旗安东平台项目。在需要连接MySQL，并使用SQLServer做代理时使用
+
+本项目只保存了存储过程和Sqlser连接mysql的方式，其余的从前端到后端的流程是和往期制作项目的框架一致的。参考佛山中控，重庆工职院，长春一汽的项目的前后端框架即可
