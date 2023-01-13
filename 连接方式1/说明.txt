@@ -1,0 +1,23 @@
+链接服务器的配置：
+方案1：
+在链接服务器添加的弹窗输入
+访问字符串： DRIVER={MySQL ODBC 5.3 Unicode Driver};SERVER=127.0.0.1;DATABASE=ecos;PORT=3306
+驱动选 有ODBC的
+之后要在安全性中 加入 用户名和密码
+方案2：
+在 控制面板 - 管理工具 - ODBC数据源(64位) - 系统DSN - 添加(输入名称Name，数据库链接信息等)
+在链接服务器中 驱动选 有ODBC的，名称输入 添加的ODBC数据源名称
+不需要在安全性中 加入 用户名和密码
+
+127.0.0.1
+root
+root
+
+//LOCALHOST_DB是 链接服务器的名字
+SELECT  es.*  FROM    OPENQUERY(LOCALHOST_DB, 'select * from ecos.station ') as es;
+
+INSERT OPENQUERY (LOCALHOST_DB,'SELECT es.id,es.type,es.id_position FROM ecos.station es') VALUES ('3','ee','555');
+
+UPDATE OPENQUERY (LOCALHOST_DB,'SELECT es.id,es.type,es.id_position FROM ecos.station es where es.id=3') SET type='aa',id_position=745;
+
+DELETE OPENQUERY (LOCALHOST_DB,'SELECT id FROM ecos.station WHERE id = 3');
